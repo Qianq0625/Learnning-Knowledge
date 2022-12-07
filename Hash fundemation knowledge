@@ -1,0 +1,42 @@
+##Hash Table
+
+"In computing, a hash table, also known as hash map, is a data structure that implements an associative array or dictionary. 
+It is an abstract data type that maps keys to values. A hash table uses a hash function to compute an index, also called a hash code,
+into an array of buckets or slots, from which the desired value can be found. During lookup, 
+the key is hashed and the resulting hash indicates where the corresponding value is stored."
+
+is a type of data structure could be directly visted by the key point's value.
+
+array is a type of Hash Table
+
+##Hash Function
+hashFunction = hashCode(name...)%tableSize
+Generally, hashcode could make other type of data structe to become different values by special coding way.
+0  XX
+1  XX
+2  XX
+3  XX
+.   .
+.   .
+.   .
+
+
+
+##Hash collisions
+0
+1 --XX---XXX
+2
+
+0
+1 XX
+XXX
+2
+3
+
+##Hash structure
+arry
+set( std::set; std::multiset; std::unordered_set)
+map( std::map; std::multimap; std::unordered_map)
+
+##Conclusion
+When we need to quickly determind whether an element appears in a set or not, Hash method could be considered.
