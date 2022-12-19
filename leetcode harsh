@@ -1,0 +1,24 @@
+harsh could be used like a array but the number of values could be not too much.
+record{26} = {0}
+
+one type of harsh data structure:
+unordered_set
+(Compared with std::set, std::multiset (Red black tree), its Read and write efficiency is the highest.
+
+[1,2,2,1]->[1,2] ? [2,2]
+
+
+class Solution {
+public:
+    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+        unordered_set<int> result_set;
+        unordered_set<int> nums_set(nums1.begin(), nums1.end());
+        //This initializes the set by iterating over the specified vector, starting at the beginning of the vector and iterating until it reaches the end, calling s.insert(theVal) for each int in the vector.
+        for(int num:nums2){
+            if(nums_set.find(num) != nums_set.end()){
+                result_set.insert(num);
+            }
+        }
+        return vector<int>(result_set.begin(), result_set.end());
+    }
+};
