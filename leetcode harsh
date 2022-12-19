@@ -3,10 +3,22 @@ record{26} = {0}
 
 one type of harsh data structure:
 unordered_set
+ if(set.find(sum) != set.end()
+ 
 (Compared with std::set, std::multiset (Red black tree), its Read and write efficiency is the highest.
 
 [1,2,2,1]->[1,2] ? [2,2]
 
+##leetcode 349
+###
+If the hash values are 
+relatively small, 
+particularly scattered 
+and span a very large area, 
+using arrays is a huge waste of space
+
+No restriction on the range of figures
+###
 
 class Solution {
 public:
@@ -20,5 +32,41 @@ public:
             }
         }
         return vector<int>(result_set.begin(), result_set.end());
+    }
+};
+
+##leetcode 202
+###
+The hash method is considered 
+when we have to quickly determine whether an element appears in a collection.
+###
+
+class Solution {
+public:
+// calculate the summary
+    int getSum(int n){
+        int sum = 0;
+        // means !0
+        while(n){
+            sum += (n%10)*(n%10);
+            n /= 10;
+        }
+        return sum;
+    }
+    bool isHappy(int n) {
+        unordered_set<int> set;
+        while(1){
+            int sum = getSum(n);
+            if(sum == 1){
+                return true;
+            }
+        // search sum
+        if(set.find(sum) != set.end()){
+            return false;
+        }else{
+            set.insert(sum);
+        }
+        n = sum;
+        }
     }
 };
