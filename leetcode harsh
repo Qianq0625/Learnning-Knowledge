@@ -70,3 +70,48 @@ public:
         }
     }
 };
+
+##leetcode1
+###
+for array:
+
+If there are only two elements and the elements are large, like 1, 100 
+then there will be an array of 100 bits and just be used twice.
+
+for set:
+
+set can only hold key.
+It is not work if index and values both are returned.
+
+one type of harsh structure: Map
+
+std::unordered_map(harsh)
+std::map, std::multimap (red black tree)
+
+std::map<X,Y> --- std::pair<const X,Y>
+This is the essence of the map -- pairs the key and the associated value together.
+std::pair gives you access to its elements through two members:
+first and second
+it->first/second
+
+#include<iostream>
+#include<unordered_map>
+using namespace std;
+
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        std::unordered_map <int,int> map;
+        for(int i = 0; i < nums.size(); i++){
+            auto iter = map.find(target - nums[i]);
+            if(iter != map.end()) {
+                return {iter->second, i};
+            }
+            //removing pair<int,int> will make a compile error
+            map.insert(pair<int, int> (nums[i] , i));
+        }
+        return {};
+    }
+};
+
+
